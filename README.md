@@ -1,6 +1,27 @@
 # Hugging Face Model Testing
 
-Testing harness for evaluating different models across various asset types (images, audio, video, text).
+Testing harness for evaluating different models across various asset types (currently images only).
+
+## Pre-requesites
+
+Install:
+
+- [just](https://github.com/casey/just)
+- [pyenv](https://github.com/pyenv/pyenv)
+- [uv](https://docs.astral.sh/uv/)
+- Python 3.12
+
+```bash
+brew install just pyenv uv
+pyenv install
+pyenv versions
+```
+
+## Setup
+
+```bash
+just setup
+```
 
 ## Usage
 
@@ -18,5 +39,41 @@ cp .env.example .env
 ### Image Generation
 
 ```bash
-uv run src/z-image-turbo.py
+just image
+```
+
+## Development
+
+### Code Quality Tools
+
+This project uses several tools to maintain code quality:
+
+```bash
+just lint
+just lint-fix
+just format
+just check
+```
+
+### Pre-commit Hooks
+
+Pre-commit hooks run automatically on every commit after running `just setup`.
+They run ruff and mypy to ensure code quality.
+
+To run manually:
+
+```bash
+just pre-commit
+```
+
+## Project Structure
+
+```
+├── src/              # Source code
+│   └── lib/          # Shared utilities
+├── prompts/          # Prompt files
+├── assets/images/    # Generated images
+├── .env.example      # Environment template
+├── justfile          # Task runner
+└── pyproject.toml    # Project config
 ```
