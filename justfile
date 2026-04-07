@@ -1,6 +1,11 @@
+help:
+  @just --list
+
 setup:
   uv sync
   uv run pre-commit install
+  test -f .env || cp .env.example .env
+  mkdir -p prompts
 
 lint:
   uv run ruff check src/

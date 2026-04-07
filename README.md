@@ -23,6 +23,9 @@ pyenv versions
 just setup
 ```
 
+This installs dependencies, creates the `.env` file (if it doesn't exist), creates the `prompts/`
+directory, and sets up pre-commit hooks.
+
 ## Usage
 
 Required environment variables:
@@ -30,11 +33,11 @@ Required environment variables:
 - `MODEL_NAME` - Hugging Face model ID (required)
 - `PROMPT_FILE` - Prompt filename in `prompts/` (optional, defaults to `prompt.md`)
 
-Copy the example `.env` file, then change/fill the values.
+Edit `.env` to set your values.
 
-```bash
-cp .env.example .env
-```
+### Prompts
+
+Place your prompt in `prompts/prompt.md` (or set `PROMPT_FILE` in `.env` to use a different file).
 
 ### Image Generation
 
